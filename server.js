@@ -1,11 +1,13 @@
 const auth = require("json-server-auth");
 const jsonServer = require("json-server");
+var cors = require("cors");
 const express=require('express')
 const app=express()
+
 const http=require('http')
 const server=http.createServer(app)
 // const server = jsonServer.create();
-
+app.use(cors());
 const io = require('socket.io')(server);
 global.io=io
 const router = jsonServer.router("db.json");
